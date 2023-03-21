@@ -24,7 +24,7 @@ MSO_E5_Dev_AutoRenew is a Python application based on Git Actions that uses Micr
     - Select the following permissions: **`files.read.all`**, **`files.readwrite.all`**, **`sites.read.all`**, **`sites.readwrite.all`**, **`user.read.all`**, **`user.readwrite.all`**, **`directory.read.all`**, **`directory.readwrite.all`**, **`mail.read`**, **`mail.readwrite`**, **`mailboxsetting.read`**, and **`mailboxsetting.readwrite`**.
     - Grant permission for all 13 selected permissions.
 4. install rclone in your system. It is required to get refresh token (one time only)
-5. Execute the command **`rclone authorize "onedrive" "id" "secret"`**.
+5. Execute the command **`rclone authorize "onedrive" <app_id> <app_secret>`**.
     - Confirm the prompt and save the refresh token.
     - **id** is the Application ID you get it from previous steps
     - **secret** is the Application secret you get it from previous steps
@@ -32,16 +32,17 @@ MSO_E5_Dev_AutoRenew is a Python application based on Git Actions that uses Micr
 7. Keep Application ID, Secret, Refresh_token handly you will need it in the next step
 8. Go to the project settings and from the left hand side menu select Secrets and Variables > Actions
 9. Click **New repository secrets.** and create three variables and set the value as given below
-    - Name: **`CONFIG_ID`** value client_id=r'your applcation_id' (within the quotes)
-    - Name: **`CONFIG_KEY`** value client_secret=r'your_secret'
-    - Name: **`REFRESH_TOKEN`** value refresh_token=r'your_refresh_token'
+    - Name: **`CONFIG_ID`** value id=r'your applcation_id' (within the quotes)
+    - Name: **`CONFIG_KEY`** value secret=r'your_secret'
+    - Name: **`REFRESH_TOKEN`** value token=r'your_refresh_token'
 10. Goto the project setting again and choose Actions menu and scroll down until you see **Workflow permissions click Read and write permission option**
 11. Go to your personal settings page on GitHub, select Developer settings > Personal access tokens > Generate new token.
     - Set the name to **`GITHUB_TOKEN`**.
     - Check the options **`repo`**, **`admin:repo_hook`**, and **`workflow`**.
     - Generate the token.
-12. Click on the star button at the top right corner of the page to call it once.
-13. Click on the Actions tab above to see the log of each run and check if the API is called correctly and if there are any errors.
+12. Update secret.txt with REFRESH_TOKEN.
+13. Click on the star button at the top right corner of the page to call it once.
+14. Click on the Actions tab above to see the log of each run and check if the API is called correctly and if there are any errors.
 
 ## **Additional Information**
 
